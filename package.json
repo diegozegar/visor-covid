@@ -3,19 +3,20 @@
     "version": "1.0.0",
     "private": true,
     "author": "soaple",
-    "engines":{
+    "engines": {
         "node": "14.x"
     },
     "scripts": {
         "clean": "rimraf dist",
         "watch": "npm run clean && NODE_ENV=development npm run build-lib && NODE_ENV=development npm run watch-app",
         "watch-app": "WEBPACK_DEV_SERVER_MODE=true webpack-dev-server --progress --config=webpack.app.js",
-        "build": "react-scripts build",
+        "build": "npm run clean && npm run build-lib && npm run build-app",
         "build-lib": "webpack --config webpack.lib.js",
         "build-app": "webpack --config webpack.app.js",
         "start": "pm2-runtime start ecosystem.config.js --env production --name stickyboard",
         "dev": "NODE_ENV=development NODE_PATH=./src nodemon app.js",
-        "production": "NODE_ENV=production NODE_PATH=./src node app.js"
+        "production": "NODE_ENV=production NODE_PATH=./src node app.js",
+        "publish": "npm run build && npx vercel --prod"
     },
     "dependencies": {
         "@loadable/component": "^5.10.3",
@@ -97,6 +98,7 @@
         "prettier": "^1.19.1",
         "style-loader": "^0.13.1",
         "terser-webpack-plugin": "^2.2.1",
+        "vercel": "^24.0.0",
         "webpack": "^4.38.0",
         "webpack-cli": "^3.3.6",
         "webpack-dev-server": "^3.7.2"
