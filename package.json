@@ -6,7 +6,7 @@
     "engines": {
         "node": "14.x"
     },
-    "main": "build/server.js",
+    "main": "dist/app.bundle.js",
     "scripts": {
         "clean": "rimraf dist",
         "watch": "npm run clean && NODE_ENV=development npm run build-lib && NODE_ENV=development npm run watch-app",

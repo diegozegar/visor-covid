@@ -2,19 +2,14 @@
     "version": 2,
     "builds": [
         {
-            "src": "build/server.js",
-            "use": "@vercel/node",
-            "config": {
-                "includeFiles": [
-                    "build/schema/**/*"
-                ]
-            }
+            "src": "dist/app.bundle.js",
+            "use": "@vercel/node"
         }
     ],
     "routes": [
         {
             "src": "/.*",
-            "dest": "build/server.js"
+            "dest": "dist/app.bundle.js"
         }
     ]
 }

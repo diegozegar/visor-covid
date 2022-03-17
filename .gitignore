@@ -38,3 +38,4 @@ tags
 !.elasticbeanstalk/*.global.yml
 .ebextensions/*
 .ebignore
+.vercel
