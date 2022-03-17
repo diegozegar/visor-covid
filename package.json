@@ -10,7 +10,7 @@
         "clean": "rimraf dist",
         "watch": "npm run clean && NODE_ENV=development npm run build-lib && NODE_ENV=development npm run watch-app",
         "watch-app": "WEBPACK_DEV_SERVER_MODE=true webpack-dev-server --progress --config=webpack.app.js",
-        "build": "npm run clean && npm run build-lib && npm run build-app",
+        "build": "react-scripts build --output public",
         "build-lib": "webpack --config webpack.lib.js",
         "build-app": "webpack --config webpack.app.js",
         "start": "pm2-runtime start ecosystem.config.js --env production --name stickyboard",
